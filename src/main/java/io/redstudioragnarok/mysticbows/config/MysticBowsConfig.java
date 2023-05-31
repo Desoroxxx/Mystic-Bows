@@ -189,6 +189,7 @@ public class MysticBowsConfig {
                 ConfigManager.sync(ModReference.id, Config.Type.INSTANCE);
 
             ((Bow) MysticBows.bow).updateConfig(common.bow.durability, common.bow.damageMult, common.bow.velocityMult, common.bow.drawTimeMult, common.bow.inaccuracy, common.bow.flameTime, 1, false);
+            ((Bow) MysticBows.crudeBow).updateConfig(common.crudeBow.durability, common.crudeBow.damageMult, common.crudeBow.velocityMult, common.crudeBow.drawTimeMult, common.crudeBow.inaccuracy, common.crudeBow.flameTime, 1, false);
             ((Bow) MysticBows.quickBow).updateConfig(common.quickBow.durability, common.quickBow.damageMult, common.quickBow.velocityMult, common.quickBow.drawTimeMult, common.quickBow.inaccuracy, common.quickBow.flameTime, 1, false);
             ((Bow) MysticBows.heavyBow).updateConfig(common.heavyBow.durability, common.heavyBow.damageMult, common.heavyBow.velocityMult, common.heavyBow.drawTimeMult, common.heavyBow.inaccuracy, common.heavyBow.flameTime, 1, false);
             ((Bow) MysticBows.lightningBow).updateConfig(common.lightningBow.durability, common.lightningBow.damageMult, common.lightningBow.velocityMult, common.lightningBow.drawTimeMult, common.lightningBow.inaccuracy, common.lightningBow.flameTime, common.lightningBow.lightningChance, common.lightningBow.strikeEntitiesOnly, common.lightningBow.strikes);
