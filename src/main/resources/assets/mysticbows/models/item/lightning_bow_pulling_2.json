@@ -1,0 +1,6 @@
+{
+    "parent": "mysticbows:item/lightning_bow",
+    "textures": {
+        "layer0": "mysticbows:items/lightning_bow_pulling_2"
+    }
+}

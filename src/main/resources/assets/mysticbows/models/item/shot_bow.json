@@ -1,0 +1,51 @@
+{
+      "parent": "minecraft:item/bow",
+      "textures": {
+          "layer0": "mysticbows:items/shot_bow"
+      },
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [ -80, 260, -40 ],
+            "translation": [ -1, -2, 5.25 ],
+            "scale": [ 1.2, 1.2, 1.2 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ -80, -280, 40 ],
+            "translation": [ -1, -2, 5.25 ],
+            "scale": [ 1.2, 1.2, 1.2 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, -90, 25 ],
+            "translation": [ 1.13, 3.2, 1.13],
+            "scale": [ 0.90, 0.90, 0.90 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 0, 90, -25 ],
+            "translation": [ 1.13, 3.2, 1.13],
+            "scale": [ 0.90, 0.90, 0.90 ]
+        }
+    },
+    "overrides": [
+        {
+            "model": "mysticbows:item/shot_bow_pulling_0",
+            "predicate": {
+                "pulling": 1
+            }
+        },
+        {
+            "model": "mysticbows:item/shot_bow_pulling_1",
+            "predicate": {
+                "pull": 0.65,
+                "pulling": 1
+            }
+        },
+        {
+            "model": "mysticbows:item/shot_bow_pulling_2",
+            "predicate": {
+                "pull": 0.9,
+                "pulling": 1
+            }
+        }
+    ]
+
+}

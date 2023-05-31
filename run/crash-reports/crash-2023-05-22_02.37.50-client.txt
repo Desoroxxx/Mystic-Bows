@@ -1,0 +1,123 @@
+---- Minecraft Crash Report ----
+// Daisy, daisy...
+
+Time: 5/22/23 2:37 AM
+Description: Unexpected error
+
+java.lang.ClassCastException: net.minecraft.item.ItemAir cannot be cast to io.redstudioragnarok.mysticbows.items.Bow
+	at io.redstudioragnarok.mysticbows.handler.ClientEventHandler.FOV(ClientEventHandler.java:22)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_21_ClientEventHandler_FOV_FOVUpdateEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.client.ForgeHooksClient.getOffsetFOV(ForgeHooksClient.java:279)
+	at net.minecraft.client.entity.AbstractClientPlayer.getFovModifier(AbstractClientPlayer.java:173)
+	at net.minecraft.client.renderer.EntityRenderer.updateFovModifierHand(EntityRenderer.java:497)
+	at net.minecraft.client.renderer.EntityRenderer.updateRenderer(EntityRenderer.java:295)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1955)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1188)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:442)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:87)
+	at GradleStart.main(GradleStart.java:19)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at io.redstudioragnarok.mysticbows.handler.ClientEventHandler.FOV(ClientEventHandler.java:22)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_21_ClientEventHandler_FOV_FOVUpdateEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.client.ForgeHooksClient.getOffsetFOV(ForgeHooksClient.java:279)
+	at net.minecraft.client.entity.AbstractClientPlayer.getFovModifier(AbstractClientPlayer.java:173)
+	at net.minecraft.client.renderer.EntityRenderer.updateFovModifierHand(EntityRenderer.java:497)
+	at net.minecraft.client.renderer.EntityRenderer.updateRenderer(EntityRenderer.java:295)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Desoroxxx'/8, l='MpServer', x=111.22, y=4.00, z=143.71]]
+	Chunk stats: MultiplayerChunkCache: 282, 282
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (0,4,0), Chunk: (at 0,0,0 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 372375 game time, 6000 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 9 total; [EntityTippedArrow['Arrow'/0, l='MpServer', x=66.32, y=4.01, z=161.52], EntityTippedArrow['Arrow'/1, l='MpServer', x=89.47, y=4.00, z=156.25], EntityTippedArrow['Arrow'/2, l='MpServer', x=91.35, y=4.01, z=156.71], EntityTippedArrow['Arrow'/3, l='MpServer', x=91.60, y=4.01, z=157.35], EntityTippedArrow['Arrow'/4, l='MpServer', x=91.67, y=4.01, z=157.85], EntityTippedArrow['Arrow'/5, l='MpServer', x=92.07, y=4.01, z=158.31], EntityTippedArrow['Arrow'/6, l='MpServer', x=111.22, y=4.01, z=141.11], EntityTippedArrow['Arrow'/7, l='MpServer', x=108.00, y=4.01, z=150.97], EntityPlayerSP['Desoroxxx'/8, l='MpServer', x=111.22, y=4.00, z=143.71]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:456)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2889)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:471)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:87)
+	at GradleStart.main(GradleStart.java:19)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 1.8.0_372, Azul Systems, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Azul Systems, Inc.
+	Memory: 1288570272 bytes (1228 MB) / 1625292800 bytes (1550 MB) up to 5726797824 bytes (5461 MB)
+	JVM Flags: 2 total; -Xms1G -Xmx6G
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2847 6 mods loaded, 6 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID           | Version      | Source                                | Signature |
+	|:------ |:------------ |:------------ |:------------------------------------- |:--------- |
+	| LCHIJA | minecraft    | 1.12.2       | minecraft.jar                         | None      |
+	| LCHIJA | mcp          | 9.42         | minecraft.jar                         | None      |
+	| LCHIJA | FML          | 8.0.99.99    | recompiled_minecraft-1.12.2.jar       | None      |
+	| LCHIJA | forge        | 14.23.5.2847 | recompiled_minecraft-1.12.2.jar       | None      |
+	| LCHIJA | mysticbows   | 1.0-Dev-3    | Mystic-Bows-1.0-Dev-3-dev.jar         | None      |
+	| LCHIJA | elenaidodge2 | 1.1.0        | ElenaiDodge2-442962-3343308-deobf.jar | None      |
+
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.6.0 Compatibility Profile Context 23.4.3.230420' Renderer: 'AMD Radeon(TM) RX 6500 XT'
+	Launched Version: FML_DEV
+	LWJGL: 2.9.4
+	OpenGL: AMD Radeon(TM) RX 6500 XT GL version 4.6.0 Compatibility Profile Context 23.4.3.230420, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 16x AMD Ryzen 7 5800X 8-Core Processor 

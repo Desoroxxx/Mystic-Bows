@@ -1,0 +1,82 @@
+# Items
+
+item.crude_bow.name=Crude Bow
+item.quick_bow.name=Quick Bow
+item.heavy_bow.name=Heavy Bow
+item.lightning_bow.name=Lightning Bow
+item.flame_bow.name=Flame Bow
+item.shot_bow.name=Shot Bow
+item.ranged_bow.name=Ranged Bow
+item.burst_bow.name=Burst Bow
+item.feather_bow.name=Feather Bow
+
+# Configuration
+
+mysticbows.general.common=Common
+mysticbows.general.common.tooltip=Common configuration for Mystic Bows
+
+mysticbows.general.common.bow=Bow
+mysticbows.general.common.bow.tooltip=Configuration for the Bow, a configurable version of the Minecraft Vanilla Bow
+
+mysticbows.general.common.crudebow=Crude Bow
+mysticbows.general.common.crudebow.tooltip=Configuration for the Crude Bow, a weaker version of the Bow
+
+mysticbows.general.common.quickbow=Quick Bow
+mysticbows.general.common.quickbow.tooltip=Configuration for the Quick Bow
+
+mysticbows.general.common.heavybow=Heavy Bow
+mysticbows.general.common.heavybow.tooltip=Configuration for the Heavy Bow
+
+mysticbows.general.common.lightningbow=Lightning Bow
+mysticbows.general.common.lightningbow.tooltip=Configuration for the Lightning Bow
+mysticbows.general.common.lightningbow.lightningchance=Lightning Chance
+mysticbows.general.common.lightningbow.lightningchance.tooltip=Chance of lightning when the arrow hits an entity, 0 means normal arrow
+mysticbows.general.common.lightningbow.strikeentitiesonly=Strike Entities Only
+mysticbows.general.common.lightningbow.strikeentitiesonly.tooltip=Whether or not the arrow should be able to create lightning when hitting something else than an entity
+mysticbows.general.common.lightningbow.strikes=Strikes
+mysticbows.general.common.lightningbow.strikes.tooltip=The amount of lighting strikes when the arrow produce lighting
+mysticbows.general.common.lightningbow.radius=Radius
+mysticbows.general.common.lightningbow.radius.tooltip=Radius around the arrow when it produce lighting where to send strikes
+
+mysticbows.general.common.flamebow=Flame Bow
+mysticbows.general.common.flamebow.tooltip=Configuration for the Flame Bow
+mysticbows.general.common.flamebow.igniteblocks=Ignite Blocks
+mysticbows.general.common.flamebow.igniteblocks.tooltip=Whether or not the arrow should be able to ignite blocks when hit
+
+mysticbows.general.common.shotbow=Shot Bow
+mysticbows.general.common.shotbow.tooltip=Configuration for the Shot Bow
+mysticbows.general.common.shotbow.arrowpershot=Arrow Per Shot
+mysticbows.general.common.shotbow.arrowpershot.tooltip=The amount of arrows to fire per shot
+mysticbows.general.common.shotbow.arrowconsumption=Arrow Consumption
+mysticbows.general.common.shotbow.arrowconsumption.tooltip=The amount of arrows to consume per shot
+
+mysticbows.general.common.rangedbow=Ranged Bow
+mysticbows.general.common.rangedbow.tooltip=Configuration for the Ranged Bow
+mysticbows.general.common.rangedbow.fovmult=FOV Multiplier
+mysticbows.general.common.rangedbow.fovmult.tooltip=Multiplier for the FOV when charging the bow
+
+mysticbows.general.common.burstbow=Burst Bow
+mysticbows.general.common.burstbow.tooltip=Configuration for the Burst Bow
+mysticbows.general.common.burstbow.arrowpershot=Arrow Per Shot
+mysticbows.general.common.burstbow.arrowpershot.tooltip=The amount of arrows to fire per shot
+mysticbows.general.common.burstbow.delay=Delay
+mysticbows.general.common.burstbow.delay.tooltip=The ammount of delay between each arrow fired in ticks
+
+mysticbows.general.common.featherbow=Feather Bow
+mysticbows.general.common.featherbow.tooltip=Configuration for the Feather Bow
+mysticbows.general.common.featherbow.featherconsumption=Feather Consumption
+mysticbows.general.common.featherbow.featherconsumption.tooltip=Feather consumption per shot
+
+mysticbows.general.common.durability=Durability
+mysticbows.general.common.durability.tooltip=Max durability of the bow, 0 means infinite
+mysticbows.general.common.damageMult=Damage Multiplier
+mysticbows.general.common.damageMult.tooltip=The multiplier to the base damage of the bow. Higher is more damage.
+mysticbows.general.common.velocityMult=Velocity Multiplier
+mysticbows.general.common.velocityMult.tooltip=The multiplier to the base velocity of the bow. Higher is more velocity.
+mysticbows.general.common.drawTimeMult=Draw Time Multiplier
+mysticbows.general.common.drawTimeMult.tooltip=The multiplier to the base draw time of the bow, higher is more draw time.
+mysticbows.general.common.inaccuracy=Inaccuracy
+mysticbows.general.common.inaccuracy.tooltip=Inaccuracy of the bow
+mysticbows.general.common.flameTime=Flame Time
+mysticbows.general.common.flameTime.tooltip=The amount of time the bow will set an entity on fire in ticks
+

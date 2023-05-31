@@ -1,0 +1,10 @@
+[
+  {
+    "modid": "${id}",
+    "name": "Mystic Bows",
+    "version": "${version}",
+    "mcversion": "1.12.2",
+    "authorList": ["Red Studio"],
+    "credits": "Desoroxxx, Ski_, GaussFire and iDiamondhunter for making the More Bows mod"
+  }
+]

@@ -1,0 +1,137 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 4/10/23 12:36 AM
+Description: Rendering screen
+
+java.lang.IllegalStateException: Not building!
+	at net.minecraft.client.renderer.BufferBuilder.finishDrawing(BufferBuilder.java:555)
+	at net.minecraft.client.renderer.Tessellator.draw(Tessellator.java:29)
+	at io.redstudioragnarok.fbp.gui.GuiButtonBugReport.drawModalRectWithCustomSizedTextureStatically(GuiButtonBugReport.java:60)
+	at io.redstudioragnarok.fbp.gui.GuiButtonBugReport.drawButton(GuiButtonBugReport.java:39)
+	at net.minecraft.client.gui.GuiScreen.drawScreen(GuiScreen.java:82)
+	at io.redstudioragnarok.fbp.gui.BasePage.drawScreen(BasePage.java:102)
+	at io.redstudioragnarok.fbp.gui.menu.Page0.drawScreen(Page0.java:65)
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:396)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1177)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1209)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:442)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:98)
+	at GradleStart.main(GradleStart.java:26)
+
+(MixinBooter) Mixins in Stacktrace:
+	net.minecraft.client.renderer.EntityRenderer:
+		io.redstudioragnarok.fbp.mixin.MixinEntityRenderer (mixins.fbp.json)
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at net.minecraft.client.renderer.BufferBuilder.finishDrawing(BufferBuilder.java:555)
+	at net.minecraft.client.renderer.Tessellator.draw(Tessellator.java:29)
+	at io.redstudioragnarok.fbp.gui.GuiButtonBugReport.drawModalRectWithCustomSizedTextureStatically(GuiButtonBugReport.java:60)
+	at io.redstudioragnarok.fbp.gui.GuiButtonBugReport.drawButton(GuiButtonBugReport.java:39)
+	at net.minecraft.client.gui.GuiScreen.drawScreen(GuiScreen.java:82)
+	at io.redstudioragnarok.fbp.gui.BasePage.drawScreen(BasePage.java:102)
+	at io.redstudioragnarok.fbp.gui.menu.Page0.drawScreen(Page0.java:65)
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:396)
+
+-- Screen render details --
+Details:
+	Screen name: io.redstudioragnarok.fbp.gui.menu.Page0
+	Mouse location: Scaled: (213, 119). Absolute: (427, 240)
+	Screen size: Scaled: (427, 240). Absolute: (854, 480). Scale factor of 2
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['FancierDev'/0, l='MpServer', x=-395.85, y=4.00, z=919.67]]
+	Chunk stats: MultiplayerChunkCache: 289, 289
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (-377,4,898), Chunk: (at 7,0,2 in -24,56; contains blocks -384,0,896 to -369,255,911), Region: (-1,1; contains chunks -32,32 to -1,63, blocks -512,0,512 to -1,255,1023)
+	Level time: 33418 game time, 6000 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 1 total; [EntityPlayerSP['FancierDev'/0, l='MpServer', x=-395.85, y=4.00, z=919.67]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:461)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2889)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:463)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:98)
+	at GradleStart.main(GradleStart.java:26)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 1.8.0_362, Temurin
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Temurin
+	Memory: 814907584 bytes (777 MB) / 1361575936 bytes (1298 MB) up to 7618953216 bytes (7266 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2847 7 mods loaded, 7 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID          | Version      | Source                                                            | Signature |
+	|:------ |:----------- |:------------ |:----------------------------------------------------------------- |:--------- |
+	| LCHIJA | minecraft   | 1.12.2       | minecraft.jar                                                     | None      |
+	| LCHIJA | mcp         | 9.42         | minecraft.jar                                                     | None      |
+	| LCHIJA | mixinbooter | 7.0          | minecraft.jar                                                     | None      |
+	| LCHIJA | FML         | 8.0.99.99    | forgeSrc-1.12.2-14.23.5.2847-PROJECT(Fancier-Block-Particles).jar | None      |
+	| LCHIJA | forge       | 14.23.5.2847 | forgeSrc-1.12.2-14.23.5.2847-PROJECT(Fancier-Block-Particles).jar | None      |
+	| LCHIJA | redcore     | 0.2-Dev-2    | Red-Core-0.2-Dev-2.jar                                            | None      |
+	| LCHIJA | fbp         | 0.8-Dev-14   | Fancier-Block-Particles-0.8-Dev-14.jar                            | None      |
+
+	Loaded coremods (and transformers): 
+MixinBooter (mixinbooter-7.0.jar)
+  
+FBPPlugin (Fancier-Block-Particles-0.8-Dev-14.jar)
+  
+	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.6.0 Compatibility Profile Context 23.3.2.230315' Renderer: 'AMD Radeon(TM) RX 6500 XT'
+	Launched Version: 1.12.2
+	LWJGL: 2.9.4
+	OpenGL: AMD Radeon(TM) RX 6500 XT GL version 4.6.0 Compatibility Profile Context 23.3.2.230315, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 16x AMD Ryzen 7 5800X 8-Core Processor 

@@ -1,0 +1,6 @@
+{
+    "parent": "mysticbows:item/feather_bow",
+    "textures": {
+        "layer0": "mysticbows:items/feather_bow_pulling_1"
+    }
+}

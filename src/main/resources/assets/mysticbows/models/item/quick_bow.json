@@ -1,0 +1,28 @@
+{
+    "overrides": [
+        {
+            "model": "mysticbows:item/quick_bow_pulling_0",
+            "predicate": {
+                "pulling": 1
+            }
+        },
+        {
+            "model": "mysticbows:item/quick_bow_pulling_1",
+            "predicate": {
+                "pull": 0.5,
+                "pulling": 1
+            }
+        },
+        {
+            "model": "mysticbows:item/quick_bow_pulling_2",
+            "predicate": {
+                "pull": 0.8,
+                "pulling": 1
+            }
+        }
+    ],
+    "parent": "minecraft:item/bow",
+    "textures": {
+        "layer0": "mysticbows:items/quick_bow"
+    }
+}

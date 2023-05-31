@@ -1,0 +1,6 @@
+{
+    "parent": "mysticbows:item/crude_bow",
+    "textures": {
+        "layer0": "mysticbows:items/crude_bow_pulling_0"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "mysticbows:item/heavy_bow",
+    "textures": {
+        "layer0": "mysticbows:items/heavy_bow_pulling_1"
+    }
+}
