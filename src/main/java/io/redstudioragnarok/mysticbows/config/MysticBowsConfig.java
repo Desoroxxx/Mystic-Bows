@@ -23,9 +23,9 @@ public class MysticBowsConfig {
     public static class Common {
 
         public final BowConfig bow = new BowConfig(385, 1, 1, 1, 1, 100);
-        public final BowConfig crudeBow = new BowConfig(163, 1, 1, 1, 2.7F, 20);
-        public final BowConfig quickBow = new BowConfig(535, 0.6F, 0.75F, 0.6F, 0.6F, 100);
-        public final BowConfig heavyBow = new BowConfig(215, 2, 2, 2, 1.3F, 100);
+        public final BowConfig crudeBow = new BowConfig(163, 1, 0.8F, 1, 2.5F, 20);
+        public final BowConfig quickBow = new BowConfig(385, 0.9F, 0.8F, 0.5F, 1.75F, 100);
+        public final BowConfig heavyBow = new BowConfig(385, 1.5F, 1, 2.25F, 0.75F, 100);
 
         public final LightningBowConfig lightningBow = new LightningBowConfig();
 
@@ -70,19 +70,19 @@ public class MysticBowsConfig {
             public boolean strikeEntitiesOnly = false;
 
             @Config.LangKey(ModReference.id + ".general.common." + "durability")
-            public int durability = 385;
+            public int durability = 193;
             @Config.LangKey(ModReference.id + ".general.common." + "flameTime")
             public int flameTime = 100;
-            public int lightningChance = 100;
+            public int lightningChance = 10;
             public int strikes = 3;
-            public int radius = 2;
+            public int radius = 3;
 
             @Config.LangKey(ModReference.id + ".general.common." + "damageMult")
             public float damageMult = 1;
             @Config.LangKey(ModReference.id + ".general.common." + "velocityMult")
             public float velocityMult = 1;
             @Config.LangKey(ModReference.id + ".general.common." + "drawTimeMult")
-            public float drawTimeMult = 3;
+            public float drawTimeMult = 1;
             @Config.LangKey(ModReference.id + ".general.common." + "inaccuracy")
             public float inaccuracy = 1;
         }
@@ -92,7 +92,7 @@ public class MysticBowsConfig {
             public boolean igniteBlocks = true;
 
             @Config.LangKey(ModReference.id + ".general.common." + "durability")
-            public int durability = 385;
+            public int durability = 193;
             @Config.LangKey(ModReference.id + ".general.common." + "flameTime")
             public int flameTime = 200;
 
@@ -101,7 +101,7 @@ public class MysticBowsConfig {
             @Config.LangKey(ModReference.id + ".general.common." + "velocityMult")
             public float velocityMult = 1;
             @Config.LangKey(ModReference.id + ".general.common." + "drawTimeMult")
-            public float drawTimeMult = 1.2F;
+            public float drawTimeMult = 1;
             @Config.LangKey(ModReference.id + ".general.common." + "inaccuracy")
             public float inaccuracy = 1;
         }
@@ -112,55 +112,55 @@ public class MysticBowsConfig {
             public int durability = 225;
             @Config.LangKey(ModReference.id + ".general.common." + "flameTime")
             public int flameTime = 100;
-            public int arrowPerShot = 5;
+            public int arrowPerShot = 9;
             public int arrowConsumption = 1;
 
             @Config.LangKey(ModReference.id + ".general.common." + "damageMult")
-            public float damageMult = 0.8F;
+            public float damageMult = 0.1F;
             @Config.LangKey(ModReference.id + ".general.common." + "velocityMult")
             public float velocityMult = 1;
             @Config.LangKey(ModReference.id + ".general.common." + "drawTimeMult")
             public float drawTimeMult = 1.6F;
             @Config.LangKey(ModReference.id + ".general.common." + "inaccuracy")
-            public float inaccuracy = 3;
+            public float inaccuracy = 8;
         }
 
         public static class RangedBowConfig {
 
             @Config.LangKey(ModReference.id + ".general.common." + "durability")
-            public int durability = 360;
+            public int durability = 385;
             @Config.LangKey(ModReference.id + ".general.common." + "flameTime")
             public int flameTime = 100;
 
             @Config.LangKey(ModReference.id + ".general.common." + "damageMult")
-            public float damageMult = 1;
+            public float damageMult = 0.6F;
             @Config.LangKey(ModReference.id + ".general.common." + "velocityMult")
-            public float velocityMult = 5;
+            public float velocityMult = 1.8F;
             @Config.LangKey(ModReference.id + ".general.common." + "drawTimeMult")
-            public float drawTimeMult = 1.5F;
+            public float drawTimeMult = 2;
             @Config.LangKey(ModReference.id + ".general.common." + "inaccuracy")
             public float inaccuracy = 0;
-            public float fovMult = 4.5F;
+            public float fovMult = 3.5F;
         }
 
         public static class BurstBowConfig {
 
             @Config.LangKey(ModReference.id + ".general.common." + "durability")
-            public int durability = 225;
+            public int durability = 385;
             @Config.LangKey(ModReference.id + ".general.common." + "flameTime")
             public int flameTime = 100;
-            public int arrowPerShot = 3;
+            public int arrowPerShot = 2;
             public int arrowConsumption = 1;
-            public int delay = 6;
+            public int delay = 3;
 
             @Config.LangKey(ModReference.id + ".general.common." + "damageMult")
-            public float damageMult = 0.7F;
+            public float damageMult = 0.75F;
             @Config.LangKey(ModReference.id + ".general.common." + "velocityMult")
             public float velocityMult = 1;
             @Config.LangKey(ModReference.id + ".general.common." + "drawTimeMult")
-            public float drawTimeMult = 1.8F;
+            public float drawTimeMult = 1;
             @Config.LangKey(ModReference.id + ".general.common." + "inaccuracy")
-            public float inaccuracy = 1;
+            public float inaccuracy = 2.6F;
         }
 
         public static class FeatherBowConfig {
@@ -169,7 +169,7 @@ public class MysticBowsConfig {
             public int durability = 385;
             @Config.LangKey(ModReference.id + ".general.common." + "flameTime")
             public int flameTime = 100;
-            public int featherConsumption = 1;
+            public int featherConsumption = 4;
 
             @Config.LangKey(ModReference.id + ".general.common." + "damageMult")
             public float damageMult = 1;
