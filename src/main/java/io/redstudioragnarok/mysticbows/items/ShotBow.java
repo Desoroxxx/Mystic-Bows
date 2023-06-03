@@ -95,13 +95,17 @@ public class ShotBow extends ItemBow {
             if (arrow.isEmpty())
                 arrow = new ItemStack(Items.ARROW);
 
+            boolean scatterShot = false;
+
             final float arrowVelocity = getArrowVelocity(charge);
 
             if ((double) arrowVelocity >= 0.1) {
                 boolean arrowInfinite = player.capabilities.isCreativeMode || (arrow.getItem() instanceof ItemArrow && ((ItemArrow) arrow.getItem()).isInfinite(arrow, itemStack, player));
 
-                for (int i = 0; i < (charge >= 18 ? MysticBowsConfig.common.shotBow.arrowPerShot : 1); i++) {
+                for (int i = 0; i < (charge >= 18 ? (MysticBowsConfig.common.shotBow.arrowConsumption > arrow.getCount() ? 1 : MysticBowsConfig.common.shotBow.arrowPerShot) : 1); i++) {
                     if (!world.isRemote) {
+                        if (i > 1)
+                            scatterShot = true;
                         ItemArrow itemArrow = (ItemArrow) (arrow.getItem() instanceof ItemArrow ? arrow.getItem() : Items.ARROW);
 
                         final EntityArrow entityArrow = itemArrow.createArrow(world, arrow, player);
@@ -142,7 +146,7 @@ public class ShotBow extends ItemBow {
                 }
 
                 if (!arrowInfinite && !player.capabilities.isCreativeMode) {
-                    arrow.shrink(MysticBowsConfig.common.shotBow.arrowConsumption);
+                    arrow.shrink(scatterShot ? MysticBowsConfig.common.shotBow.arrowConsumption : 1);
 
                     if (arrow.isEmpty())
                         player.inventory.deleteStack(arrow);

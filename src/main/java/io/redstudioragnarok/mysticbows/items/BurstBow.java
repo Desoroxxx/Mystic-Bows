@@ -14,8 +14,7 @@ import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
@@ -27,6 +26,7 @@ public class BurstBow extends ItemBow {
     private boolean firstArrow = true;
 
     private int delay = 0;
+    private int arrowShot = 0;
 
     private float arrowVelocity;
 
@@ -68,6 +68,23 @@ public class BurstBow extends ItemBow {
         });
     }
 
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        ItemStack itemstack = playerIn.getHeldItem(handIn);
+        boolean flag = !this.findAmmo(playerIn).isEmpty();
+
+        ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, worldIn, playerIn, handIn, flag);
+        if (ret != null)
+            return ret;
+
+        if (!playerIn.capabilities.isCreativeMode && !flag || !arrowQueue.isEmpty()) {
+            return flag ? new ActionResult(EnumActionResult.PASS, itemstack) : new ActionResult(EnumActionResult.FAIL, itemstack);
+        } else {
+            playerIn.setActiveHand(handIn);
+            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+        }
+    }
+
     /**
      * Called when the player stops using an Item (stops holding the right mouse button).
      */
@@ -92,6 +109,9 @@ public class BurstBow extends ItemBow {
             if (arrow.isEmpty())
                 arrow = new ItemStack(Items.ARROW);
 
+            arrowShot = 0;
+            boolean burstShot = false;
+
             arrowVelocity = getArrowVelocity(charge);
 
             if ((double) arrowVelocity >= 0.1) {
@@ -102,7 +122,7 @@ public class BurstBow extends ItemBow {
                 if (arrowQueue.isEmpty())
                     firstArrow = true;
 
-                for (int i = 0; i < arrowToShoot; i++) {
+                for (int i = 0; i < (charge >= 18 ? (MysticBowsConfig.common.burstBow.arrowConsumption > arrow.getCount() ? 1 : arrowToShoot) : 1); i++) {
                     if (!world.isRemote) {
                         ItemArrow itemArrow = (ItemArrow) (arrow.getItem() instanceof ItemArrow ? arrow.getItem() : Items.ARROW);
 
@@ -130,32 +150,32 @@ public class BurstBow extends ItemBow {
                                 entityArrow.setFire(MysticBowsConfig.common.burstBow.flameTime);
                         }
 
-                        if (MysticBowsConfig.common.burstBow.durability == 1)
-                            itemStack.damageItem(2, player);
-                        else if (MysticBowsConfig.common.burstBow.durability > 0)
-                            itemStack.damageItem(1, player);
-
                         if (arrowInfinite || player.capabilities.isCreativeMode && (arrow.getItem() == Items.SPECTRAL_ARROW || arrow.getItem() == Items.TIPPED_ARROW))
                             entityArrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
 
-                        if (!firstArrow)
+                        if (!firstArrow) {
                             arrowQueue.add(arrow);
-                        else {
+                            burstShot = true;
+                        } else {
                             world.spawnEntity(entityArrow);
+                            arrowShot++;
                             world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1, 1 / (itemRand.nextFloat() * 0.4F + 1.2F) + arrowVelocity * 0.5F);
-                            delay =  MysticBowsConfig.common.burstBow.delay;
+                            delay = MysticBowsConfig.common.burstBow.delay;
 
                             firstArrow = false;
                         }
                     }
-
-                    if (!arrowInfinite && !player.capabilities.isCreativeMode) {
-                        arrow.shrink(1);
-
-                        if (arrow.isEmpty())
-                            player.inventory.deleteStack(arrow);
-                    }
                 }
+
+                if (!world.isRemote) {
+                    if (MysticBowsConfig.common.burstBow.durability == 1)
+                        itemStack.damageItem(2, player);
+                    else if (MysticBowsConfig.common.burstBow.durability > 0)
+                        itemStack.damageItem(1, player);
+                }
+
+                if (!arrowInfinite && !player.capabilities.isCreativeMode)
+                    arrow.shrink(burstShot ? MysticBowsConfig.common.burstBow.arrowConsumption : 1);
 
                 player.addStat(StatList.getObjectUseStats(this));
             }
@@ -170,7 +190,7 @@ public class BurstBow extends ItemBow {
 
                 ItemArrow itemArrow = (ItemArrow) (arrow.getItem() instanceof ItemArrow ? arrow.getItem() : Items.ARROW);
 
-                EntityArrow entityArrow = itemArrow.createArrow(world, arrow,((EntityLivingBase) entity));
+                EntityArrow entityArrow = itemArrow.createArrow(world, arrow, ((EntityLivingBase) entity));
 
                 entityArrow.shoot(entity, entity.rotationPitch, entity.rotationYaw, 0, (arrowVelocity * 3) * MysticBowsConfig.common.burstBow.velocityMult, MysticBowsConfig.common.burstBow.inaccuracy);
 
@@ -192,9 +212,13 @@ public class BurstBow extends ItemBow {
                 if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, itemStack) > 0)
                     entityArrow.setFire(MysticBowsConfig.common.burstBow.flameTime);
 
+                if (arrowShot >= MysticBowsConfig.common.burstBow.arrowConsumption)
+                    entityArrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
+
                 world.spawnEntity(entityArrow);
+                arrowShot++;
                 world.playSound(null, entity.posX, entity.posY, entity.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1, 1 / (itemRand.nextFloat() * 0.4F + 1.2F) + arrowVelocity * 0.5F);
-                delay =  MysticBowsConfig.common.burstBow.delay;
+                delay = MysticBowsConfig.common.burstBow.delay;
             } else {
                 delay--;
             }

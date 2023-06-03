@@ -59,6 +59,8 @@ mysticbows.general.common.burstbow=Burst Bow
 mysticbows.general.common.burstbow.tooltip=Configuration for the Burst Bow
 mysticbows.general.common.burstbow.arrowpershot=Arrow Per Shot
 mysticbows.general.common.burstbow.arrowpershot.tooltip=The amount of arrows to fire per shot
+mysticbows.general.common.burstbow.arrowconsumption=Arrow Consumption
+mysticbows.general.common.burstbow.arrowconsumption.tooltip=The amount of arrows to consume per burst shot
 mysticbows.general.common.burstbow.delay=Delay
 mysticbows.general.common.burstbow.delay.tooltip=The ammount of delay between each arrow fired in ticks
 
