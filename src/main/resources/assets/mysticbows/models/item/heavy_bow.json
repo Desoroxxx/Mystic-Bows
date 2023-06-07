@@ -10,21 +10,21 @@
         {
             "model": "mysticbows:item/heavy_bow_pulling_1",
             "predicate": {
-                "pull": 0.4,
+                "pull": 0.5,
                 "pulling": 1
             }
         },
         {
             "model": "mysticbows:item/heavy_bow_pulling_2",
             "predicate": {
-                "pull": 0.7,
+                "pull": 0.75,
                 "pulling": 1
             }
         },
         {
             "model": "mysticbows:item/heavy_bow_pulling_3",
             "predicate": {
-                "pull": 0.9,
+                "pull": 0.925,
                 "pulling": 1
             }
         }
@@ -37,12 +37,12 @@
         "thirdperson_righthand": {
             "rotation": [ -80, 260, -40 ],
             "translation": [ -1, -2, 5.25 ],
-            "scale": [ 1.2, 1.2, 1.2 ]
+            "scale": [ 1.0, 1.0, 1.0 ]
         },
         "thirdperson_lefthand": {
             "rotation": [ -80, -280, 40 ],
             "translation": [ -1, -2, 5.25 ],
-            "scale": [ 1.2, 1.2, 1.2 ]
+            "scale": [ 1.0, 1.0, 1.0 ]
         },
         "firstperson_righthand": {
             "rotation": [ 0, -90, 25 ],

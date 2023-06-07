@@ -3,6 +3,7 @@
         {
             "model": "mysticbows:item/quick_bow_pulling_0",
             "predicate": {
+				"pull": 0.1,
                 "pulling": 1
             }
         },
@@ -16,7 +17,7 @@
         {
             "model": "mysticbows:item/quick_bow_pulling_2",
             "predicate": {
-                "pull": 0.8,
+                "pull": 0.925,
                 "pulling": 1
             }
         }
