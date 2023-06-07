@@ -102,7 +102,9 @@ public class ShotBow extends ItemBow {
             if ((double) arrowVelocity >= 0.1) {
                 boolean arrowInfinite = player.capabilities.isCreativeMode || (arrow.getItem() instanceof ItemArrow && ((ItemArrow) arrow.getItem()).isInfinite(arrow, itemStack, player));
 
-                for (int i = 0; i < (charge >= 18 ? (MysticBowsConfig.common.shotBow.arrowConsumption > arrow.getCount() ? 1 : MysticBowsConfig.common.shotBow.arrowPerShot) : 1); i++) {
+                final int arrowToShoot = player.isCreative() ? MysticBowsConfig.common.shotBow.arrowPerShot : (charge >= 18 ? (MysticBowsConfig.common.shotBow.arrowConsumption > arrow.getCount() ? 1 : MysticBowsConfig.common.shotBow.arrowPerShot) : 1);
+
+                for (int i = 0; i < arrowToShoot ; i++) {
                     if (!world.isRemote) {
                         if (i > 1)
                             scatterShot = true;

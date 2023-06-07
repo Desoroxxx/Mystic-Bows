@@ -120,7 +120,9 @@ public class BurstBow extends ItemBow {
                 if (arrowQueue.isEmpty())
                     firstArrow = true;
 
-                for (int i = 0; i < (charge >= 18 ? (MysticBowsConfig.common.burstBow.arrowConsumption > arrow.getCount() ? 1 : MysticBowsConfig.common.burstBow.arrowPerShot) : 1); i++) {
+                final int arrowToShoot = player.isCreative() ? MysticBowsConfig.common.burstBow.arrowPerShot : (charge >= 18 ? (MysticBowsConfig.common.burstBow.arrowConsumption > arrow.getCount() ? 1 : MysticBowsConfig.common.burstBow.arrowPerShot) : 1);
+
+                for (int i = 0; i < arrowToShoot; i++) {
                     if (!world.isRemote) {
                         ItemArrow itemArrow = (ItemArrow) (arrow.getItem() instanceof ItemArrow ? arrow.getItem() : Items.ARROW);
 
