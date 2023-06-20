@@ -135,11 +135,6 @@ public class ShotBow extends ItemBow {
                             world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GHAST_SHOOT, SoundCategory.PLAYERS, 0.9F, 1.35F / ((itemRand.nextFloat() * 0.4F) + 1.2F) + arrowVelocity * 0.5F);
                         }
 
-                        if (MysticBowsConfig.common.shotBow.durability == 1)
-                            itemStack.damageItem(2, player);
-                        else if (MysticBowsConfig.common.shotBow.durability > 0)
-                            itemStack.damageItem(1, player);
-
                         if (charge >= 18)
                             entityArrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
 
@@ -147,12 +142,15 @@ public class ShotBow extends ItemBow {
                     }
                 }
 
-                if (!arrowInfinite && !player.capabilities.isCreativeMode) {
-                    arrow.shrink(scatterShot ? MysticBowsConfig.common.shotBow.arrowConsumption : 1);
-
-                    if (arrow.isEmpty())
-                        player.inventory.deleteStack(arrow);
+                if (!world.isRemote) {
+                    if (MysticBowsConfig.common.shotBow.durability == 1)
+                        itemStack.damageItem(2, player);
+                    else if (MysticBowsConfig.common.shotBow.durability > 0)
+                        itemStack.damageItem(1, player);
                 }
+
+                if (!arrowInfinite && !player.capabilities.isCreativeMode)
+                    arrow.shrink(scatterShot ? MysticBowsConfig.common.shotBow.arrowConsumption : 1);
 
                 world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1, 1 / (itemRand.nextFloat() * 0.4F + 1.2F) + arrowVelocity * 0.5F);
 
