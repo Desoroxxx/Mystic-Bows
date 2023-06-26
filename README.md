@@ -24,7 +24,7 @@ These bows do not have any built-in recipes. Instead, we suggest something like 
 This crudely-crafted bow has poor accuracy, durability, and damage.
 
 # ![bow](https://github.com/Desoroxxx/Mystic-Bows/assets/107653759/f631658f-baf1-42c5-8956-cf9ee679cf03) Bow (Copy of Standard Bow)
-This is a 1:! copy of the vanilla bow, in case you wish to effectively replace the vanilla bow, or utilize this as a separate bow! You can always use something like Resource Loader to re-texture and re-name this bow for your purposes, to have as a bonus configurable bow.
+This is a 1:1 copy of the vanilla bow, in case you wish to effectively replace the vanilla bow, or utilize this as a separate bow! You can always use something like Resource Loader to re-texture and re-name this bow for your purposes, to have as a bonus configurable bow.
 
 # ![quick_bow](https://github.com/Desoroxxx/Mystic-Bows/assets/107653759/ca0e8e71-d18b-416c-9561-6b8a2c0700c8) Quick Bow
 Has a very short draw time, at the slight cost of accuracy and velocity.
