@@ -43,7 +43,7 @@ Ignites all arrows shot as Flame arrows. Ignite time is a bonus configurable. Al
 When fully drawn, splits 1 arrow into many lower-damage arrows, much like a shotgun's spread! Arrow consumption, arrow damage, and number of arrows fired per shot are all bonus configurables.
 
 # ![burst_bow](https://github.com/Desoroxxx/Mystic-Bows/assets/107653759/82db5ec8-fc60-4349-bbd4-57b38a8deb9c) Burst Bow
-When fully drawn, fires 1 arrow as two back-to-back arrows, like a burst rifle! Number of arrows per burst, arrow consumption, and delay between arrows are all bonus configurables.
+When fully drawn, fires 1 arrow as two back-to-back arrows, like a burst rifle! Number of arrows per burst, arrow consumption, and delay between arrows are all bonus configurables. Make a machine gun bow, if you want!
 
 # ![feather_bow](https://github.com/Desoroxxx/Mystic-Bows/assets/107653759/811ad7e6-0dfe-49f1-9938-5898f58823ba) Feather Bow
 When [Elenai Dodge 2 for 1.12.2](https://legacy.curseforge.com/minecraft/mc-mods/elenai-dodge-2/files/all?filter-game-version=2020709689%3A6756) is installed, this bow appears! Instead of using arrows as ammunition, this bow fires arrows that consume the Dodge bar stamina. Think of the Feather Bow converting stamina/magic into arrows, saving you on ammunition! The amount of feathers required/consumed is a bonus configurable.
