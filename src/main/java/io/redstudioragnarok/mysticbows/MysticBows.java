@@ -31,11 +31,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 //                /$$  | $$
 //               |  $$$$$$/
 //                \______/
-@Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version)
+@Mod(modid = ModReference.ID, name = ModReference.NAME, version = ModReference.VERSION)
 @Mod.EventBusSubscriber
 public class MysticBows {
 
-    public static final boolean isElenaiDodge2Loaded = Loader.isModLoaded("elenaidodge2");
+    public static final boolean IS_ELENAI_DODGE_2_LOADED = Loader.isModLoaded("elenaidodge2");
 
     public static Item bow, crudeBow, quickBow, heavyBow, lightningBow, flameBow, shotBow, rangedBow, burstBow, featherBow;
 
@@ -47,22 +47,22 @@ public class MysticBows {
 
     @SubscribeEvent
     public static void registerItems(final RegistryEvent.Register<Item> itemRegistryEvent) {
-        bow = new Bow(MysticBowsConfig.common.bow.durability, MysticBowsConfig.common.bow.damageMult, MysticBowsConfig.common.bow.velocityMult, MysticBowsConfig.common.bow.drawTimeMult, MysticBowsConfig.common.bow.inaccuracy, MysticBowsConfig.common.bow.flameTime, 1, false).setTranslationKey("bow").setRegistryName(ModReference.id, "bow");
-        crudeBow = new Bow(MysticBowsConfig.common.crudeBow.durability, MysticBowsConfig.common.crudeBow.damageMult, MysticBowsConfig.common.crudeBow.velocityMult, MysticBowsConfig.common.crudeBow.drawTimeMult, MysticBowsConfig.common.crudeBow.inaccuracy, MysticBowsConfig.common.crudeBow.flameTime, 1, false).setTranslationKey("crude_bow").setRegistryName(ModReference.id, "crude_bow");
-        quickBow = new Bow(MysticBowsConfig.common.quickBow.durability, MysticBowsConfig.common.quickBow.damageMult, MysticBowsConfig.common.quickBow.velocityMult, MysticBowsConfig.common.quickBow.drawTimeMult, MysticBowsConfig.common.quickBow.inaccuracy, MysticBowsConfig.common.quickBow.flameTime, 1, false).setTranslationKey("quick_bow").setRegistryName(ModReference.id, "quick_bow");
-        heavyBow = new Bow(MysticBowsConfig.common.heavyBow.durability, MysticBowsConfig.common.heavyBow.damageMult, MysticBowsConfig.common.heavyBow.velocityMult, MysticBowsConfig.common.heavyBow.drawTimeMult, MysticBowsConfig.common.heavyBow.inaccuracy, MysticBowsConfig.common.heavyBow.flameTime, 1, false).setTranslationKey("heavy_bow").setRegistryName(ModReference.id, "heavy_bow");
-        lightningBow = new Bow(MysticBowsConfig.common.lightningBow.durability, MysticBowsConfig.common.lightningBow.damageMult, MysticBowsConfig.common.lightningBow.velocityMult, MysticBowsConfig.common.lightningBow.drawTimeMult, MysticBowsConfig.common.lightningBow.inaccuracy, MysticBowsConfig.common.lightningBow.flameTime, MysticBowsConfig.common.lightningBow.lightningChance, MysticBowsConfig.common.lightningBow.strikeEntitiesOnly, MysticBowsConfig.common.lightningBow.strikes).setTranslationKey("lightning_bow").setRegistryName(ModReference.id, "lightning_bow");
-        flameBow = new Bow(MysticBowsConfig.common.flameBow.durability, MysticBowsConfig.common.flameBow.damageMult, MysticBowsConfig.common.flameBow.velocityMult, MysticBowsConfig.common.flameBow.drawTimeMult, MysticBowsConfig.common.flameBow.inaccuracy, MysticBowsConfig.common.flameBow.flameTime, MysticBowsConfig.common.flameBow.igniteBlocks).setTranslationKey("flame_bow").setRegistryName(ModReference.id, "flame_bow");
-        shotBow = new ShotBow().setTranslationKey("shot_bow").setRegistryName(ModReference.id, "shot_bow");
-        rangedBow = new Bow(MysticBowsConfig.common.rangedBow.durability, MysticBowsConfig.common.rangedBow.damageMult, MysticBowsConfig.common.rangedBow.velocityMult, MysticBowsConfig.common.rangedBow.drawTimeMult, MysticBowsConfig.common.rangedBow.inaccuracy, MysticBowsConfig.common.rangedBow.flameTime, 1, true).setTranslationKey("ranged_bow").setRegistryName(ModReference.id, "ranged_bow");
-        burstBow = new BurstBow().setTranslationKey("burst_bow").setRegistryName(ModReference.id, "burst_bow");
+        bow = new Bow(MysticBowsConfig.common.bow.durability, MysticBowsConfig.common.bow.damageMult, MysticBowsConfig.common.bow.velocityMult, MysticBowsConfig.common.bow.drawTimeMult, MysticBowsConfig.common.bow.inaccuracy, MysticBowsConfig.common.bow.flameTime, 1, false).setTranslationKey("bow").setRegistryName(ModReference.ID, "bow");
+        crudeBow = new Bow(MysticBowsConfig.common.crudeBow.durability, MysticBowsConfig.common.crudeBow.damageMult, MysticBowsConfig.common.crudeBow.velocityMult, MysticBowsConfig.common.crudeBow.drawTimeMult, MysticBowsConfig.common.crudeBow.inaccuracy, MysticBowsConfig.common.crudeBow.flameTime, 1, false).setTranslationKey("crude_bow").setRegistryName(ModReference.ID, "crude_bow");
+        quickBow = new Bow(MysticBowsConfig.common.quickBow.durability, MysticBowsConfig.common.quickBow.damageMult, MysticBowsConfig.common.quickBow.velocityMult, MysticBowsConfig.common.quickBow.drawTimeMult, MysticBowsConfig.common.quickBow.inaccuracy, MysticBowsConfig.common.quickBow.flameTime, 1, false).setTranslationKey("quick_bow").setRegistryName(ModReference.ID, "quick_bow");
+        heavyBow = new Bow(MysticBowsConfig.common.heavyBow.durability, MysticBowsConfig.common.heavyBow.damageMult, MysticBowsConfig.common.heavyBow.velocityMult, MysticBowsConfig.common.heavyBow.drawTimeMult, MysticBowsConfig.common.heavyBow.inaccuracy, MysticBowsConfig.common.heavyBow.flameTime, 1, false).setTranslationKey("heavy_bow").setRegistryName(ModReference.ID, "heavy_bow");
+        lightningBow = new Bow(MysticBowsConfig.common.lightningBow.durability, MysticBowsConfig.common.lightningBow.damageMult, MysticBowsConfig.common.lightningBow.velocityMult, MysticBowsConfig.common.lightningBow.drawTimeMult, MysticBowsConfig.common.lightningBow.inaccuracy, MysticBowsConfig.common.lightningBow.flameTime, MysticBowsConfig.common.lightningBow.lightningChance, MysticBowsConfig.common.lightningBow.strikeEntitiesOnly, MysticBowsConfig.common.lightningBow.strikes).setTranslationKey("lightning_bow").setRegistryName(ModReference.ID, "lightning_bow");
+        flameBow = new Bow(MysticBowsConfig.common.flameBow.durability, MysticBowsConfig.common.flameBow.damageMult, MysticBowsConfig.common.flameBow.velocityMult, MysticBowsConfig.common.flameBow.drawTimeMult, MysticBowsConfig.common.flameBow.inaccuracy, MysticBowsConfig.common.flameBow.flameTime, MysticBowsConfig.common.flameBow.igniteBlocks).setTranslationKey("flame_bow").setRegistryName(ModReference.ID, "flame_bow");
+        shotBow = new ShotBow().setTranslationKey("shot_bow").setRegistryName(ModReference.ID, "shot_bow");
+        rangedBow = new Bow(MysticBowsConfig.common.rangedBow.durability, MysticBowsConfig.common.rangedBow.damageMult, MysticBowsConfig.common.rangedBow.velocityMult, MysticBowsConfig.common.rangedBow.drawTimeMult, MysticBowsConfig.common.rangedBow.inaccuracy, MysticBowsConfig.common.rangedBow.flameTime, 1, true).setTranslationKey("ranged_bow").setRegistryName(ModReference.ID, "ranged_bow");
+        burstBow = new BurstBow().setTranslationKey("burst_bow").setRegistryName(ModReference.ID, "burst_bow");
 
         itemRegistryEvent.getRegistry().registerAll(bow, crudeBow, quickBow, heavyBow, lightningBow, flameBow, shotBow, rangedBow, burstBow);
 
-        if (!isElenaiDodge2Loaded)
+        if (!IS_ELENAI_DODGE_2_LOADED)
             return;
 
-        featherBow = new FeatherBow().setTranslationKey("feather_bow").setRegistryName(ModReference.id, "feather_bow");
+        featherBow = new FeatherBow().setTranslationKey("feather_bow").setRegistryName(ModReference.ID, "feather_bow");
 
         itemRegistryEvent.getRegistry().register(featherBow);
     }
@@ -80,7 +80,7 @@ public class MysticBows {
         ModelLoader.setCustomModelResourceLocation(rangedBow, 0, new ModelResourceLocation(rangedBow.delegate.name(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(burstBow, 0, new ModelResourceLocation(burstBow.delegate.name(), "inventory"));
 
-        if (!isElenaiDodge2Loaded)
+        if (!IS_ELENAI_DODGE_2_LOADED)
             return;
 
         ModelLoader.setCustomModelResourceLocation(featherBow, 0, new ModelResourceLocation(featherBow.delegate.name(), "inventory"));
