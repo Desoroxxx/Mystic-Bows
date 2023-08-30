@@ -14,3 +14,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Fixed arrow consumption config for the Shot bow and Burst bow not having a minimum value
 - Fixed shot bow never allowing arrows to be picked up even if arrow consumption was higher than one
+- Fixed burst bow not being able to shoot when a burst is still ongoing
