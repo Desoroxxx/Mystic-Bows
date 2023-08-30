@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
     id("com.gtnewhorizons.retrofuturagradle") version "1.+"
     id("com.matthewprenger.cursegradle") version "1.4.0"
+    id("io.freefair.lombok") version "8.3"
 }
 
 // Add version to the jar name
@@ -15,7 +16,7 @@ version project.version
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(8))
-        vendor.set(JvmVendorSpec.ADOPTIUM)
+        vendor.set(JvmVendorSpec.AZUL)
     }
     // Generate sources jar when building and publishing
     withSourcesJar()
@@ -28,12 +29,12 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 minecraft {
-    mcVersion = '1.12.2'
+    mcVersion = "1.12.2"
 
     username = "Desoroxxx"
 
-    injectedTags.put('ID', project.id)
-    injectedTags.put('VERSION', project.version)
+    injectedTags.put("ID", project.id)
+    injectedTags.put("VERSION", project.version)
 }
 
 // Generate a my.project.Tags class with the version number as a field
@@ -43,26 +44,20 @@ tasks.injectTags.configure {
 
 // Replace version and id in `mcmod.info`
 processResources {
-    inputs.property 'id', project.id
-    inputs.property 'version', project.version
-    filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
-        include 'mcmod.info'
-        fcd.expand (
-                'id': project.id,
-                'version': project.version
+    inputs.property "id", project.id
+    inputs.property "version", project.version
+    filesMatching("mcmod.info") { fcd ->
+        include "mcmod.info"
+        fcd.expand(
+                "id": project.id,
+                "version": project.version
         )
     }
 }
 
-// Create configuration to include embedded dependencies into FBP jar
-configurations {
-    implementation
-    compile.extendsFrom(embed)
-}
-
 repositories {
     maven {
-        name 'Curse Maven'
+        name "Curse Maven"
         url "https://cursemaven.com"
         content {
             includeGroup "curse.maven"
@@ -74,47 +69,37 @@ dependencies {
     implementation rfg.deobf("curse.maven:ElenaiDodge2-442962:3343308")
 }
 
-jar {
-    manifest.attributes([
-            'ModSide': 'BOTH',
-    ])
-
-    // Add all embedded dependencies into the jar
-    from(provider{ configurations.embed.collect {it.isDirectory() ? it : zipTree(it)} })
-}
-
 idea {
-    module { inheritOutputDirs = true }
-
     module {
+        inheritOutputDirs = true
         excludeDirs = [file(".github"), file(".gradle"), file(".idea"), file("build"), file("gradle"), file("run")]
     }
 
-    project { settings {
-        runConfigurations {
-            "1. Client"(Gradle) {
-                taskNames = ["runClient"]
+    project {
+        settings {
+            runConfigurations {
+                "1. Client"(Gradle) {
+                    taskNames = ["runClient"]
+                }
+                "2. Server"(Gradle) {
+                    taskNames = ["runServer"]
+                }
+                "3. Obfuscated Client"(Gradle) {
+                    taskNames = ["runObfClient"]
+                }
+                "4. Obfuscated Server"(Gradle) {
+                    taskNames = ["runObfServer"]
+                }
             }
-            "2. Server"(Gradle) {
-                taskNames = ["runServer"]
-            }
-            "3. Obfuscated Client"(Gradle) {
-                taskNames = ["runObfClient"]
-            }
-            "4. Obfuscated Server"(Gradle) {
-                taskNames = ["runObfServer"]
-            }
-        }
 
-        compiler.javac {
-            afterEvaluate {
-                javacAdditionalOptions = "-encoding utf8"
-                moduleJavacAdditionalOptions = [
-                        (project.id + ".main"): tasks.compileJava.options.compilerArgs.collect { '"' + it + '"' }.join(' ')
-                ]
+            compiler.javac {
+                afterEvaluate {
+                    javacAdditionalOptions = "-encoding utf8"
+                    moduleJavacAdditionalOptions = [(project.id + ".main"): tasks.compileJava.options.compilerArgs.collect { """ + it + """ }.join(" ")]
+                }
             }
         }
-    }}
+    }
 }
 
 tasks.named("processIdeaSettings").configure {
