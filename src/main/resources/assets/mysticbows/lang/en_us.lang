@@ -49,6 +49,8 @@ mysticbows.general.common.shotbow.arrowpershot=Arrows Per Shot
 mysticbows.general.common.shotbow.arrowpershot.tooltip=The amount of arrows to fire per shot.
 mysticbows.general.common.shotbow.arrowconsumption=Arrow Consumption
 mysticbows.general.common.shotbow.arrowconsumption.tooltip=The amount of arrows to consume per shot.
+mysticbows.general.common.shotbow.maxspecialarrow=Max Special Arrow Per Shot
+mysticbows.general.common.shotbow.maxspecialarrow.tooltip=The amount of special arrows to shoot per shot, unlimited if set to 0, this will still consume special arrows but strip there special effects.
 
 mysticbows.general.common.rangedbow=Ranged Bow
 mysticbows.general.common.rangedbow.tooltip=Configuration for the Ranged Bow
@@ -63,6 +65,8 @@ mysticbows.general.common.burstbow.arrowconsumption=Arrow Consumption
 mysticbows.general.common.burstbow.arrowconsumption.tooltip=The amount of arrows to consume per burst shot
 mysticbows.general.common.burstbow.delay=Delay
 mysticbows.general.common.burstbow.delay.tooltip=The amount of delay between each arrow fired in ticks
+mysticbows.general.common.burstbow.maxspecialarrow=Max Special Arrow Per Burst
+mysticbows.general.common.burstbow.maxspecialarrow.tooltip=The amount of special arrows to shoot per burst, unlimited if set to 0, this will still consume special arrows but strip there special effects
 
 mysticbows.general.common.featherbow=Feather Bow
 mysticbows.general.common.featherbow.tooltip=Configuration for the Feather Bow

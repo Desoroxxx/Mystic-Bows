@@ -113,7 +113,9 @@ public class MysticBowsConfig {
             @Config.LangKey(ModReference.ID + ".general.common." + "flameTime")
             public int flameTime = 100;
             public int arrowPerShot = 9;
+            @Config.RangeInt(min = 1)
             public int arrowConsumption = 1;
+            public int maxSpecialArrow = 1;
 
             @Config.LangKey(ModReference.ID + ".general.common." + "damageMult")
             public float damageMult = 0.1F;
@@ -150,8 +152,10 @@ public class MysticBowsConfig {
             @Config.LangKey(ModReference.ID + ".general.common." + "flameTime")
             public int flameTime = 100;
             public int arrowPerShot = 2;
+            @Config.RangeInt(min = 1)
             public int arrowConsumption = 1;
             public int delay = 3;
+            public int maxSpecialArrow = 1;
 
             @Config.LangKey(ModReference.ID + ".general.common." + "damageMult")
             public float damageMult = 0.75F;

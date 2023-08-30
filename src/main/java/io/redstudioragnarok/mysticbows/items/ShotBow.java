@@ -6,12 +6,14 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.projectile.EntityTippedArrow;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTippedArrow;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -99,16 +101,22 @@ public class ShotBow extends ItemBow {
 
             final float arrowVelocity = getArrowVelocity(charge);
 
-            if ((double) arrowVelocity >= 0.1) {
+            if (arrowVelocity >= 0.1) {
                 boolean arrowInfinite = player.capabilities.isCreativeMode || (arrow.getItem() instanceof ItemArrow && ((ItemArrow) arrow.getItem()).isInfinite(arrow, itemStack, player));
 
-                final int arrowToShoot = player.isCreative() ? MysticBowsConfig.common.shotBow.arrowPerShot : (charge >= 18 ? (MysticBowsConfig.common.shotBow.arrowConsumption > arrow.getCount() ? 1 : MysticBowsConfig.common.shotBow.arrowPerShot) : 1);
+                final int arrowToShoot = player.isCreative() ? MysticBowsConfig.common.shotBow.arrowPerShot : (charge > 18 ? (MysticBowsConfig.common.shotBow.arrowConsumption > arrow.getCount() ? 1 : MysticBowsConfig.common.shotBow.arrowPerShot) : 1);
 
                 for (int i = 0; i < arrowToShoot ; i++) {
                     if (!world.isRemote) {
                         if (i > 1)
                             scatterShot = true;
-                        ItemArrow itemArrow = (ItemArrow) (arrow.getItem() instanceof ItemArrow ? arrow.getItem() : Items.ARROW);
+
+                        ItemArrow itemArrow;
+
+                        if (MysticBowsConfig.common.shotBow.maxSpecialArrow == 0)
+                            itemArrow = (ItemArrow) (arrow.getItem() instanceof ItemArrow ? arrow.getItem() : Items.ARROW);
+                        else
+                            itemArrow = (ItemArrow) (!(arrow.getItem() instanceof ItemTippedArrow) && i < MysticBowsConfig.common.shotBow.maxSpecialArrow ? arrow.getItem() : Items.ARROW);
 
                         final EntityArrow entityArrow = itemArrow.createArrow(world, arrow, player);
 
@@ -135,7 +143,7 @@ public class ShotBow extends ItemBow {
                             world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GHAST_SHOOT, SoundCategory.PLAYERS, 0.9F, 1.35F / ((itemRand.nextFloat() * 0.4F) + 1.2F) + arrowVelocity * 0.5F);
                         }
 
-                        if (charge >= 18)
+                        if (charge >= 18 && i >= MysticBowsConfig.common.shotBow.arrowConsumption)
                             entityArrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
 
                         world.spawnEntity(entityArrow);

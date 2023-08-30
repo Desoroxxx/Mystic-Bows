@@ -13,6 +13,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTippedArrow;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
@@ -22,8 +23,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BurstBow extends ItemBow {
-
-    private boolean firstArrow = true;
 
     private int delay = 0;
     private int arrowShot = 0;
@@ -77,11 +76,11 @@ public class BurstBow extends ItemBow {
         if (ret != null)
             return ret;
 
-        if (!playerIn.capabilities.isCreativeMode && !flag || !arrowQueue.isEmpty()) {
+        if (!playerIn.capabilities.isCreativeMode && !flag || arrowQueue.size() > 16) {
             return flag ? new ActionResult(EnumActionResult.PASS, itemstack) : new ActionResult(EnumActionResult.FAIL, itemstack);
         } else {
             playerIn.setActiveHand(handIn);
-            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+            return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
         }
     }
 
@@ -114,17 +113,22 @@ public class BurstBow extends ItemBow {
 
             arrowVelocity = getArrowVelocity(charge);
 
-            if ((double) arrowVelocity >= 0.1) {
+            if (arrowVelocity >= 0.1) {
                 boolean arrowInfinite = player.capabilities.isCreativeMode || (arrow.getItem() instanceof ItemArrow && ((ItemArrow) arrow.getItem()).isInfinite(arrow, itemStack, player));
 
-                if (arrowQueue.isEmpty())
-                    firstArrow = true;
+                boolean firstArrow = true;
 
                 final int arrowToShoot = player.isCreative() ? MysticBowsConfig.common.burstBow.arrowPerShot : (charge >= 18 ? (MysticBowsConfig.common.burstBow.arrowConsumption > arrow.getCount() ? 1 : MysticBowsConfig.common.burstBow.arrowPerShot) : 1);
 
                 for (int i = 0; i < arrowToShoot; i++) {
                     if (!world.isRemote) {
-                        ItemArrow itemArrow = (ItemArrow) (arrow.getItem() instanceof ItemArrow ? arrow.getItem() : Items.ARROW);
+
+                        ItemArrow itemArrow;
+
+                        if (MysticBowsConfig.common.burstBow.maxSpecialArrow == 0)
+                            itemArrow = (ItemArrow) (arrow.getItem() instanceof ItemArrow ? arrow.getItem() : Items.ARROW);
+                        else
+                            itemArrow = (ItemArrow) (!(arrow.getItem() instanceof ItemTippedArrow) && i < MysticBowsConfig.common.burstBow.maxSpecialArrow ? arrow.getItem() : Items.ARROW);
 
                         final EntityArrow entityArrow = itemArrow.createArrow(world, arrow, player);
 
